@@ -1,0 +1,18 @@
+{% extends 'ww1/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Detailed information</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">Amount in blood(umol/l): <span class="badge">{{ bilirubin.mol }}</span></li>
+                    <li class="list-group-item">Age(hours): <span class="badge">{{ bilirubin.hours }}</span></li>
+                    <li class="list-group-item">Sample taken: <span class="badge">{{ bilirubin.pub_date }}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

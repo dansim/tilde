@@ -1,0 +1,40 @@
+{% extends 'ww1/base.html' %}
+{% load staticfiles %}
+{% block content %}
+   <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Detailed information</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        {% for w in weights %}
+                            <li class="list-group-item"><a href="/ww1/weight-detail/{{ w.id }}"> Age of {{ w }} hours </a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well well-sm">
+                <h3 class="page-header">Weight over time</h3>
+
+                <canvas id="weight_chart" width="500" height="400"></canvas>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Weight aggregation</div>
+                <div class="panel-body">
+                    <ul id="weight_info" class="list-group">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+   </div>
+
+   <br><br><br>
+   <script src="{% static 'ww1/js/chart.min.js' %}"></script>
+   <script src="{% static 'ww1/js/weight.js' %}"></script>
+
+{% endblock %}

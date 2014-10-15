@@ -1,0 +1,48 @@
+{% extends 'ww1/base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% if bilirubin_list %}
+    <br>
+
+
+    <div id="alert_box"></div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+            <div class="panel-heading">Detailed information</div>
+                <div class="panel-body">
+                    <ul class="list-group" style="max-height: 400px !important; overflow: auto">
+                        {% for bilirubin in bilirubin_list %}
+                            <li class="list-group-item"><a href="/ww1/{{ bilirubin.id }}">Age of {{ bilirubin }} hours </a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well well-sm">
+                <h3 class="page-header">&micro; mol/l Bilirubin over time</h3>
+                <canvas id="myChart" width="500" height="400"></canvas>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Aggregated information</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">next: <span id="time_left" class="badge"></span></li>
+                        <li class="list-group-item">total average value: <span id="avg" class="badge"></span></li>
+                        <li class="list-group-item">latest value: <span id="lv" class="badge"></span></li>
+                        <li class="list-group-item">latest 24h average value: <span id="l24avg" class="badge"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <script src="{% static 'ww1/js/chart.min.js' %}"></script>
+    <script src="{% static 'ww1/js/logic.js' %}"></script>
+
+{% endif %}
+{% endblock %}
