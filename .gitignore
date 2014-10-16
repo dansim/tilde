@@ -3,3 +3,5 @@ out
 *.iml
 .idea
 vendor
+db.sqlite3
+settings.py
